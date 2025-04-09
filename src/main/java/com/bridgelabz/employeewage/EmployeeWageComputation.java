@@ -6,33 +6,23 @@ public class EmployeeWageComputation
     {
         System.out.println( " Welcome Employee Wage Computation Problem" );
         final int FULL_TIME = 2;
-        final int PART_TIME = 1;
-        final int WAGE_PER_HR = 20;
-        final int MAX_WORKING_DAYS = 20;
-        final int MAX_WORKING_HRS = 100;
-
-        int totalWage = 0;
-        int workingHrs = 0;
-        System.out.printf("%5s     %5s     %5s     %5s\n", "Day", "Workinghrs", "Wage", "Total working hrs");
-
-        for (int day = 1, totalWorkingHrs = 0; day <= MAX_WORKING_DAYS && totalWorkingHrs < MAX_WORKING_HRS; day++, totalWorkingHrs += workingHrs)
-        {
-            int empType = (int) (Math.random() * 100) % 3;
-            switch (empType)
-            {
-                case FULL_TIME:
-                    workingHrs = 8;
-                    break;
-                case PART_TIME:
-                    workingHrs = 4;
-                    break;
-                default:
-            }
-            int wage = workingHrs * WAGE_PER_HR;
-            totalWage += wage;
-            System.out.printf("%5d       %5d      %5d      %5d\n", day, workingHrs, wage, totalWorkingHrs + workingHrs);
-
+        int PART_TIME = 1;
+        int WAGE_PER_HR = 20;
+        int workingHours = 0;
+        double empType = Math.floor(Math.random() * 10) % 2;
+        if (empType == FULL_TIME) {
+            System.out.println("Employee is Present");
+            workingHours = 8;
         }
-        System.out.println("Total wage for a month is " + totalWage);
+        else if (empType == PART_TIME)
+        {
+            System.out.println("Employee is Present Part Time");
+            workingHours = 4;
+        }
+        else {
+            System.out.println("Employee is Absent");
+        }
+        int wage = workingHours * WAGE_PER_HR;
+        System.out.println("Employee Daily Wage is " + wage);
     }
 }
